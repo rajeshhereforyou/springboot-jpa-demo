@@ -3,6 +3,7 @@ package demo.example.springbootjpademo.service;
 import demo.example.springbootjpademo.dao.entity.Course;
 import demo.example.springbootjpademo.dao.entity.Student;
 import demo.example.springbootjpademo.dao.repository.StudentRepository;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,8 @@ public class StudentService {
     }
 
     public List<Student> findStudentsByCourseName(String courseName){
-        return studentRepository.findStudentsByCourseName(courseName);
+        List<Student>  students = studentRepository.findStudentsByCourseName(courseName);
+        Collections.sort(students);
+        return students;
     }
 }
